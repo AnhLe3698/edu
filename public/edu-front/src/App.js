@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './App.css';
+import NavBar from './NavBar';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <h1>{message}</h1>
     </div>
   );
