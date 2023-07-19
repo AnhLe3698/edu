@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edu</title>
-
-  <link rel="stylesheet" href="./styles.css">
+    <title>Educational Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            color: white;
+            padding: 15px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to My Web Page!</h1>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#math">Math</a>
+        <a href="#science">Science</a>
+        <a href="#history">History</a>
+    </div>
 
-  <p>This is the content of my web page.</p>
+    <div class="content">
+        <div class="section" id="home">
+            <h2>Welcome to our Education Page</h2>
+            <p>This is a website dedicated to helping students learn and improve their knowledge in various subjects.</p>
+        </div>
+
+        <div class="section" id="math">
+            <h2>Math</h2>
+            <p>Learn about algebra, geometry, calculus, and more. Improve your problem-solving skills and mathematical thinking.</p>
+        </div>
+
+        <div class="section" id="science">
+            <h2>Science</h2>
+            <p>Understand the world around you through biology, chemistry, physics, and more. Enhance your analytical and experimental skills.</p>
+        </div>
+
+        <div class="section" id="history">
+            <h2>History</h2>
+            <p>Delve into the past and understand how historical events have shaped the world we live in today.</p>
+        </div>
+    </div>
 </body>
 </html>
