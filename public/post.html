@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posting Mockup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #dbdbdb;
+            width: 100%;
+        }
+
+        .navbar img {
+            height: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 90%;
+        }
+
+        .post {
+            border: 1px solid #dbdbdb;
+            background-color: #fff;
+        }
+
+        .footer {
+            border-top: 1px solid #dbdbdb;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .login-form {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+        }
+
+        .login-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 200px;
+        }
+
+        .login-form button {
+            padding: 10px;
+            width: 220px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="instagram_logo.jpg" alt="Logo">
+        <input type="text" placeholder="Search">
+        <div>
+            <img src="heart.jpg" width="20" height="20" alt="likes icon">
+            <img src="comment.jpg" width="20" height="20" alt="messages icon">
+            <button id="loginButton">Sign in</button>
+        </div>
+    </div>
+
+    <div class="login-form" id="loginForm">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button>Log in</button>
+    </div>
+
+    <div class="container">
+        <!-- Post contents would go here -->
+         <!-- Post 1 -->
+         <div class="post">
+            <!-- Post content goes here -->
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post">
+            <!-- Video content goes here -->
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post">
+            <!-- Post content goes here -->
+        </div>
+        <!-- Post 1 -->
+        <div class="post">
+            <!-- Post content goes here -->
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post">
+            <!-- Video content goes here -->
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post">
+            <!-- Post content goes here -->
+        </div>
+        <!-- Post 1 -->
+        <div class="post">
+            <!-- Post content goes here -->
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post">
+            <!-- Video content goes here -->
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post">
+            <!-- Post content goes here -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 edu</p>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
