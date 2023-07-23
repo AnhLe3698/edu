@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    
+</head>
+<body>
+  <style>
+    /* Add your CSS code here */
+    * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #444;
+          line-height: 1.6;
+          background-color: #f4f4f4;
+          padding: 1em;
+      }
+
+      header {
+          background: linear-gradient(to right, #ff9966, #ff5e62);
+          color: white;
+          padding: 20px;
+          margin-bottom: 30px;
+          text-align: center;
+          border-radius: 8px;
+          box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.1);
+      }
+
+      main {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 20px;
+      }
+
+      section {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.1);
+      }
+
+      .profile-info {
+          grid-column: span 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+
+      .profile-info img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 15px;
+      }
+
+      .social-media-links ul {
+          display: flex;
+          justify-content: space-around;
+      }
+
+      .social-media-links a {
+          color: #3498db;
+          text-decoration: none;
+      }
+
+      .exp-edu {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+      }
+
+      .skills ul, .projects ul, .experience ul, .education ul {
+          list-style: none;
+      }
+
+      footer {
+          background: linear-gradient(to right, #ff9966, #ff5e62);
+          color: white;
+          text-align: center;
+          padding: 20px;
+          margin-top: 30px;
+          border-radius: 8px;
+          box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.1);
+      }
+
+  </style>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+
+    <main>
+        <!-- User Info -->
+        <section class="profile-info">
+            <img src="user_profile_picture.jpg" alt="User Profile Picture">
+            <h2>User Name</h2>
+            <p>Short Bio or Description</p>
+        </section>
+
+        <!-- Social Media Links -->
+        <section class="social-media-links">
+            <h3>Find Me on</h3>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/username">LinkedIn</a></li>
+                <li><a href="https://github.com/username">GitHub</a></li>
+                <li><a href="https://twitter.com/username">Twitter</a></li>
+                <!-- Add more as needed -->
+            </ul>
+        </section>
+
+        <!-- Experience and Education -->
+        <section class="exp-edu">
+            <!-- Experience -->
+            <div class="experience">
+                <h3>Experience</h3>
+                <ul>
+                    <li>
+                        <h4>Job Title at Company</h4>
+                        <p>Job Description</p>
+                    </li>
+                    <!-- Add more as needed -->
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="education">
+                <h3>Education</h3>
+                <ul>
+                    <li>
+                        <h4>Degree at University</h4>
+                        <p>Field of Study, Years</p>
+                    </li>
+                    <!-- Add more as needed -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>Skill 1</li>
+                <li>Skill 2</li>
+                <!-- Add more as needed -->
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section class="projects">
+            <h3>Projects</h3>
+            <ul>
+                <li>
+                    <h4>Project Title</h4>
+                    <p>Project Description</p>
+                    <a href="project_link">View Project</a>
+                </li>
+                <!-- Add more as needed -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 User Profile</p>
+    </footer>
+</body>
+</html>
