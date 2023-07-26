@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A-Star Tutoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .course-card {
+            background-color: #ddd;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .course-card h2 {
+            margin: 0;
+        }
+        .course-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-card button {
+            padding: 10px 20px;
+            background-color: #888;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A-Star Tutoring: Course Assignments</h1>
+    </header>
+
+    <main>
+        <!-- Math Course -->
+        <div class="course-card">
+            <h2>Math 101</h2>
+            <ul>
+                <li>Assignment 1: <button onclick="openAssignment('Math 101', 'Assignment 1', 'Solve the following equations:...')">View</button></li>
+                <li>Assignment 2: <button onclick="openAssignment('Math 101', 'Assignment 2', 'Find the derivative of the following functions:...')">View</button></li>
+                <li>Assignment 3: <button onclick="openAssignment('Math 101', 'Assignment 3', 'Calculate the integral of the following functions:...')">View</button></li>
+            </ul>
+        </div>
+
+        <!-- English Course -->
+        <div class="course-card">
+            <h2>English 101</h2>
+            <ul>
+                <li>Assignment 1: <button onclick="openAssignment('English 101', 'Assignment 1', 'Write an essay on the following topic:...')">View</button></li>
+                <li>Assignment 2: <button onclick="openAssignment('English 101', 'Assignment 2', 'Analyze the following text:...')">View</button></li>
+                <li>Assignment 3: <button onclick="openAssignment('English 101', 'Assignment 3', 'Compose a poem based on the following theme:...')">View</button></li>
+            </ul>
+        </div>
+
+        <!-- History Course -->
+        <div class="course-card">
+            <h2>History 101</h2>
+            <ul>
+                <li>Assignment 1: <button onclick="openAssignment('History 101', 'Assignment 1', 'Write a report on the following historical event:...')">View</button></li>
+                <li>Assignment 2: <button onclick="openAssignment('History 101', 'Assignment 2', 'Analyze the impact of the following historical figure:...')">View</button></li>
+                <li>Assignment 3: <button onclick="openAssignment('History 101', 'Assignment 3', 'Discuss the causes and effects of the following war:...')">View</button></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 A-Star Tutoring
+    </footer>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function openAssignment(course, assignment, description) {
+            document.getElementById('modal-title').textContent = course + ": " + assignment;
+            document.getElementById('modal-description').textContent = description;
+            modal.style.display = "block";
+        }
+    </script>
+</body>
+</html>
