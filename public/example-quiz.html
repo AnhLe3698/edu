@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A-Star Tutoring: Physics 20 Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .question-card {
+            background-color: #ddd;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(33% - 40px);
+            box-sizing: border-box;
+        }
+        .question-card h2 {
+            margin: 0 0 10px 0;
+        }
+        .question-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+        button {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #888;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A-Star Tutoring: Physics 20 Quiz</h1>
+    </header>
+
+    <main>
+        <!-- 15 question cards -->
+        <!-- The correct answer to each question is the first choice -->
+        <!-- In a real application, you would generate these cards based on data from a database -->
+        <!-- This is a simple static example -->
+        <div class="question-card" id="question1">
+            <h2>Question 1</h2>
+            <ul>
+                <li><input type="radio" name="answer1" value="correct"> Answer 1</li>
+                <li><input type="radio" name="answer1" value="wrong"> Answer 2</li>
+                <li><input type="radio" name="answer1" value="wrong"> Answer 3</li>
+                <li><input type="radio" name="answer1" value="wrong"> Answer 4</li>
+            </ul>
+        </div>
+        <div class="question-card" id="question2">
+          <h2>Question 2</h2>
+          <ul>
+              <li><input type="radio" name="answer2" value="correct"> Answer 1</li>
+              <li><input type="radio" name="answer2" value="wrong"> Answer 2</li>
+              <li><input type="radio" name="answer2" value="wrong"> Answer 3</li>
+              <li><input type="radio" name="answer2" value="wrong"> Answer 4</li>
+          </ul>
+      </div>
+      <!-- Repeat for questions 3 to 15... -->
+      <div class="question-card" id="question15">
+          <h2>Question 15</h2>
+          <ul>
+              <li><input type="radio" name="answer15" value="correct"> Answer 1</li>
+              <li><input type="radio" name="answer15" value="wrong"> Answer 2</li>
+              <li><input type="radio" name="answer15" value="wrong"> Answer 3</li>
+              <li><input type="radio" name="answer15" value="wrong"> Answer 4</li>
+          </ul>
+      </div>
+      
+
+        <button onclick="checkAnswers()">Submit</button>
+
+        <p id="score"></p>
+    </main>
+
+    <footer>
+        &copy; 2023 A-Star Tutoring
+    </footer>
+
+    <script>
+        function checkAnswers() {
+            var correct = 0;
+
+            // Check each question
+            for (var i = 1; i <= 15; i++) {
+                var answers = document.getElementsByName('answer' + i);
+                for (var j = 0; j < answers.length; j++) {
+                    var answer = answers[j];
+                    if (answer.checked) {
+                        if (answer.value === 'correct') {
+                            correct++;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            document.getElementById('score').textContent = 'You got ' + correct + '/15 correct.';
+        }
+    </script>
+</body>
+</html>
