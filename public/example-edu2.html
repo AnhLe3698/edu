@@ -83,6 +83,38 @@
                 <li><input type="radio" name="answer1" value="wrong"> Study of heat</li>
                 <li><input type="radio" name="answer1" value="wrong"> Study of light</li>
             </ul>
+            <h2>Question 2: What is displacement?</h2>
+            <ul>
+                <li><input type="radio" name="answer2" value="wrong"> The total distance travelled</li>
+                <li><input type="radio" name="answer2" value="correct"> The shortest distance from the initial to the final position</li>
+                <li><input type="radio" name="answer2" value="wrong"> The speed of an object</li>
+                <li><input type="radio" name="answer2" value="wrong"> The force applied on an object</li>
+            </ul>
+
+            <h2>Question 3: What does velocity measure?</h2>
+            <ul>
+                <li><input type="radio" name="answer3" value="wrong"> The displacement of an object</li>
+                <li><input type="radio" name="answer3" value="correct"> The rate of change of displacement</li>
+                <li><input type="radio" name="answer3" value="wrong"> The force applied on an object</li>
+                <li><input type="radio" name="answer3" value="wrong"> The heat of an object</li>
+            </ul>
+
+            <h2>Question 4: What is the difference between speed and velocity?</h2>
+            <ul>
+                <li><input type="radio" name="answer4" value="wrong"> Speed is a scalar, velocity is not</li>
+                <li><input type="radio" name="answer4" value="wrong"> Speed can be negative, velocity cannot</li>
+                <li><input type="radio" name="answer4" value="correct"> Speed is a scalar quantity, velocity is a vector quantity</li>
+                <li><input type="radio" name="answer4" value="wrong"> There is no difference</li>
+            </ul>
+
+            <h2>Question 5: What is acceleration?</h2>
+            <ul>
+                <li><input type="radio" name="answer5" value="wrong"> The distance travelled by an object</li>
+                <li><input type="radio" name="answer5" value="wrong"> The speed of an object</li>
+                <li><input type="radio" name="answer5" value="correct"> The rate of change of velocity</li>
+                <li><input type="radio" name="answer5" value="wrong"> The change in displacement</li>
+            </ul>
+
             <button onclick="checkAnswer()">Submit</button>
             <p id="feedback"></p>
         </section>
@@ -126,19 +158,24 @@
         }
 
         function checkAnswer() {
-            var answers = document.getElementsByName('answer1');
-            for (var i = 0; i < answers.length; i++) {
-                var answer = answers[i];
-                if (answer.checked) {
-                    if (answer.value === 'correct') {
-                        document.getElementById('feedback').textContent = 'Correct answer!';
-                    } else {
-                        document.getElementById('feedback').textContent = 'Incorrect answer. Please try again.';
+            var totalQuestions = 5;  // Update this to the total number of questions
+            var correctAnswers = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var answers = document.getElementsByName('answer' + i);
+                for (var j = 0; j < answers.length; j++) {
+                    var answer = answers[j];
+                    if (answer.checked && answer.value === 'correct') {
+                        correctAnswers++;
+                        break;
                     }
-                    break;
                 }
             }
+
+            var percentageCorrect = (correctAnswers / totalQuestions) * 100;
+            document.getElementById('feedback').textContent = 'You got ' + correctAnswers + ' out of ' + totalQuestions + ' questions correct. This is ' + percentageCorrect + '%.';
         }
+
     </script>
 </body>
 </html>
