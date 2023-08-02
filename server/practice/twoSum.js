@@ -10,16 +10,22 @@
 
 function twoSum(nums, target) {
   // Your code here
-  hashmap = {};
+//   hashmap = {};
 
-  for (let i = 0; i < nums.length; i++) {
-    const compliment = target - nums[i];
-    if (hashmap[compliment] !== undefined) {
-      return [hashmap[compliment], i];
-    }
-    hashmap[nums[i]] = i;
+//   for (let i = 0; i < nums.length; i++) {
+//     const compliment = target - nums[i];
+//     if (hashmap[compliment] !== undefined) {
+//       return [hashmap[compliment], i];
+//     }
+//     hashmap[nums[i]] = i;
+//   }
+//   return [];
+  testingObject = {
+    objectivetruth:1,
+    omar: '21barrels'
   }
-  return [];
+  return testingObject;
 }
 
+// console.log(twoSum)
 console.log(twoSum([2, 7, 11, 15], 9));  // Output: [0, 1]
