@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Pie Chart</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Interactive Pie Chart</h2>
+
+<div class="controls">
+    <label>
+        Data 1:
+        <input type="number" id="data1" value="25">
+    </label>
+    <label>
+        Data 2:
+        <input type="number" id="data2" value="25">
+    </label>
+    <label>
+        Data 3:
+        <input type="number" id="data3" value="25">
+    </label>
+    <label>
+        Data 4:
+        <input type="number" id="data4" value="25">
+    </label>
+    <button onclick="drawPieChart()">Update Chart</button>
+</div>
+
+<canvas id="pieCanvas" width="400" height="400"></canvas>
+
+<script>
+    const canvas = document.getElementById('pieCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function drawPieChart() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const data = [
+            parseFloat(document.getElementById('data1').value),
+            parseFloat(document.getElementById('data2').value),
+            parseFloat(document.getElementById('data3').value),
+            parseFloat(document.getElementById('data4').value)
+        ];
+        
+        const colors = ['#FF5733', '#33FF57', '#5733FF', '#33FFF5'];
+        let startAngle = 0;
+        const totalData = data.reduce((acc, val) => acc + val, 0);
+        
+        for (let i = 0; i < data.length; i++) {
+            const sliceAngle = (data[i] / totalData) * 2 * Math.PI;
+            ctx.fillStyle = colors[i];
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2, canvas.height / 2);
+            ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, startAngle, startAngle + sliceAngle);
+            ctx.closePath();
+            ctx.fill();
+            startAngle += sliceAngle;
+        }
+    }
+
+    drawPieChart();
+</script>
+
+</body>
+</html>
