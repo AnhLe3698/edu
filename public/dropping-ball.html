@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Ball Drop Simulation</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #timer {
+            display: inline-block;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    Height (m): <input type="number" id="height" value="30"><br>
+    Gravitational Constant (m/s^2): <input type="number" id="gravity" value="-9.81"><br>
+    Initial Velocity (m/s, upwards is positive): <input type="number" id="velocity" value="10"><br>
+    <button onclick="startSimulation()">Start Simulation</button><br>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <div id="timer">
+        Time Elapsed: <span id="elapsedTime">0</span> seconds
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let animation;
+
+        function startSimulation() {
+            // Stop any ongoing animations
+            if (animation) {
+                cancelAnimationFrame(animation);
+            }
+
+            const height = parseFloat(document.getElementById('height').value);
+            const gravity = parseFloat(document.getElementById('gravity').value);
+            let velocity = parseFloat(document.getElementById('velocity').value);
+            let time = 0;
+            let interval = 0.02; // 20ms in seconds
+            let elapsedTime = 0;
+
+            // Initial position
+            let y = height;
+
+            function updateTimer() {
+                elapsedTime += interval;
+                document.getElementById('elapsedTime').textContent = elapsedTime.toFixed(2);
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Update position
+                y = height + velocity * time + 0.5 * gravity * time * time;
+
+                // Draw ball
+                ctx.beginPath();
+                ctx.arc(250, canvas.height - (y * 10), 10, 0, 2 * Math.PI);
+                ctx.fillStyle = 'blue';
+                ctx.fill();
+                ctx.closePath();
+
+                time += interval;
+
+                if (y >= 0) {
+                    updateTimer();
+                    animation = requestAnimationFrame(animate);
+                } else {
+                    cancelAnimationFrame(animation);
+                }
+            }
+
+            animate();
+        }
+    </script>
+</body>
+
+</html>
